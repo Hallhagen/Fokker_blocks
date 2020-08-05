@@ -119,10 +119,11 @@ if __name__ == '__main__':
             if is_in_block(pos, comma_positions, include_commas):
                 interval_list.extend(interval(generators, pos))
 
+    interval_list.remove(sp.sympify(1))
     interval_list = list(dict.fromkeys(interval_list))
     interval_list.sort(key=float)
     if include_octave:
-        interval_list.append('2')
+        interval_list.append('2/1')
 
     scl_output('output', commas, interval_list)
 
